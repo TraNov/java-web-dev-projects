@@ -1,46 +1,58 @@
 package org.launchcode;
 
 public class MenuItem {
-    private double price;
+    private Double price;
     private String description;
     private String category;
-    private boolean isNew;
 
-    public MenuItem(double p, String d, String c, boolean iN) {
-        this.price = p;
-        this.description = d;
-        this.category = c;
-        this.isNew = iN;
-    }
+    private boolean isNew = false;
 
-    public void setPrice(double price) {
+    public MenuItem(double price, String description, String category) {
         this.price = price;
-    }
-
-    public void setDescription(String description) {
         this.description = description;
-    }
-
-    public void setCategory(String category) {
         this.category = category;
     }
 
-    public void setNew(boolean aNew) {
-        isNew = aNew;
+    public void print() {
+        System.out.println(this.toString());
+    }
+
+    public String toString() {
+        String newString = this.isNew ? "- NEW!" : "";
+        return String.format("Category: %s, Description: %s, Price: %.2f %s", this.category, this.description, this.price, newString);
+    }
+
+    public boolean equals(Object toBeCompared) {
+        if (toBeCompared == this) {
+            return true;
+        }
+
+        if (toBeCompared == null) {
+            return false;
+        }
+
+        if (toBeCompared.getClass() != getClass()) {
+            return false;
+        }
+
+        MenuItem item = (MenuItem) toBeCompared;
+        return this.getCategory() == item.getCategory() && this.getPrice() == item.getPrice() && this.getDescription() == item.getDescription();
     }
 
     public double getPrice() {
-        return this.price;
+        return price;
     }
+
     public String getDescription() {
-        return this.description;
+        return description;
     }
 
     public String getCategory() {
-        return this.category;
+        return category;
     }
 
-    public boolean getNew() {
-        return this.isNew;
-    }}
+    public boolean isNew() {
+        return isNew;
+    }
 
+}
