@@ -8,7 +8,7 @@ public class QuizRunner {
         funWithQuizzes.addQuestion(multipleChoice);
 
         CheckBox checkbox = new CheckBox("Which vehicles are Ford's. Select all that apply, " +
-                " \nA: Bronco \nB: Corvette \nC: Mustang \nD: SL-500", "AC");
+                " \nA: Bronco \nB: Corvette \nC: Mustang \nD: SL-500\nEnter comma separated", "A,C");
         funWithQuizzes.addQuestion(checkbox);
 
         TrueFalse trueFalse = new TrueFalse("Ford's motto is 'Built to last'? \nTrue or False?", "True");
